@@ -1,0 +1,13 @@
+#slider {
+  display: flex;
+  overflow: hidden;
+}
+
+#slider img {
+  width: 100%;
+  height: auto;
+}
+
+#controls {
+  text-align: center;
+}
