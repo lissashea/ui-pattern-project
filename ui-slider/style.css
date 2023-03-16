@@ -1,13 +1,19 @@
 #slider {
+  width: 240px;
+  height: 320px;
   display: flex;
   overflow: hidden;
 }
 
 #slider img {
-  width: 100%;
-  height: auto;
+  width: 240px;
+  height: 320px;
 }
+
 
 #controls {
   text-align: center;
 }
+
+
+
