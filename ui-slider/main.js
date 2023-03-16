@@ -35,13 +35,36 @@
 
 // prevButton.addEventListener('click', prevImage);
 // nextButton.addEventListener('click', nextImage);
-const slider = document.getElementById('slider');
+const sliderImages = document.querySelectorAll('.slider-container img');
+const prevBtn = document.querySelector('#prev-btn');
+const nextBtn = document.querySelector('#next-btn');
 
-// Add the image file path here
-const image = "https://imgur.com/daJaWEd";
+let currentIndex = 0;
 
-function updateSlider() {
-  slider.innerHTML = `<img src="${image}">`;
+function showImage(index) {
+  sliderImages.forEach(img => img.classList.remove('active'));
+  sliderImages[index].classList.add('active');
 }
 
-updateSlider();
+function nextImage() {
+  if (currentIndex === sliderImages.length - 1) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+  showImage(currentIndex);
+}
+
+function prevImage() {
+  if (currentIndex === 0) {
+    currentIndex = sliderImages.length - 1;
+  } else {
+    currentIndex--;
+  }
+  showImage(currentIndex);
+}
+
+prevBtn.addEventListener('click', prevImage);
+nextBtn.addEventListener('click', nextImage);
+
+showImage(currentIndex);
