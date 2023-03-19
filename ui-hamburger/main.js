@@ -5,7 +5,6 @@ const modalClose = document.querySelector('.modal-close');
 
 const breedSelect = document.querySelector('#breed-select');
 const breed = breedSelect.value
-console.log(breed)
 
 items.forEach(item => {
   item.addEventListener('click', () => {
