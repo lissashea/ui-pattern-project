@@ -28,22 +28,25 @@ modalClose.addEventListener('click', () => {
 
 // select all the img elements in the HTML
 const images = document.querySelectorAll(".item img");
-
 // loop through each img element and update its src attribute with a new image URL
 breedSelect.addEventListener('change', () => {
   const breed = breedSelect.value;
   images.forEach((img) => {
-    fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        img.src = data.message;
-        const h2 = img.parentElement.querySelector("h2");
-        h2.innerHTML = breed;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }); 
+    if (breed === 'terrier/junie-moon') {
+      img.src = 'file:///Users/lissawarshaw/Desktop/repos/projects/ui-pattern-project/ui-hamburger/images/june.jpg';
+    } else {
+      fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          img.src = data.message;
+          const h2 = img.parentElement.querySelector("h2");
+          h2.innerHTML = breed;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  });
 });
