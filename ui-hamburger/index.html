@@ -8,11 +8,22 @@
 	<div class="modal-overlay"></div>
 	
 	<div class="modal">
-		<h2>Item Details</h2>
+		<h2 id="breed-name">Item Details</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel ligula id massa lacinia ultrices. Fusce euismod dolor eu risus eleifend, quis bibendum purus lacinia. Nam sagittis mi quis est bibendum, eu dictum mauris gravida.</p>
 		<a href="#" class="modal-close">&times;</a>
 	</div>
-	
+	<div class="breed-selector">
+		<label for="breed-select">Select Breed:</label>
+		<select id="breed-select">
+			<option value="airedale">Airedale Terrier</option>
+			<option value="terrier/wheaten">Wheaten Terrier</option>
+			<option value="schnauzer/giant">Giant Schnauzer</option>
+			<option value="schnauzer/miniature">Miniature Schnauzer</option>
+			<option value="sheepdog/english">English Sheepdog</option>
+			<option value="terrier/norwich">Norwich Terrier</option>
+			<option value="samoyed">Samoyed</option>
+		</select>
+	</div>
   <div class="items">
 		<div class="item">
 			<img src="/Users/lissawarshaw/Desktop/repos/projects/ui-pattern-project/ui-hamburger/images/june.jpg" alt="Item 1">
@@ -39,6 +50,6 @@
 			<img src="/Users/lissawarshaw/Desktop/repos/projects/ui-pattern-project/ui-hamburger/images/june.jpg" alt="Item 8">
 		</div>
 	</div>
-	<script src="main.js"></script>
+	<script src="main.js" defer></script>
 </body>
 </html>
