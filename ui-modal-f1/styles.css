@@ -1,5 +1,10 @@
 body {
 	font-family: Arial, sans-serif;
+	color:black;
+}
+
+#text {
+	color: transparent;
 }
 
 .container {
@@ -8,11 +13,12 @@ body {
 	grid-template-rows: repeat(4, 1fr);
 	gap: 10px;
 	margin: 0 auto;
+	color: black;
 }
 
 .box {
-	width: 80px;
-	height: 80px;
+	width: 200px;
+	height: 200px;
 	border: 1px solid black;
 	display: flex;
 	align-items: center;
@@ -38,6 +44,8 @@ body {
 	padding: 20px;
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	font-family: Arial, Helvetica, sans-serif;
+	color:black;
 }
 
 .close-button {
@@ -53,4 +61,18 @@ body {
 	justify-content: center;
 	margin: 60px;
 
+}
+
+.logo-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.team-logo {
+	max-width: 100%;
+	max-height: 150px;
+	color: white;
 }

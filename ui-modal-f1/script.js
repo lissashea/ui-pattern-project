@@ -5,32 +5,10 @@ const nameElement = document.querySelector('.name');
 const teamElement = document.querySelector('.team');
 const rankingElement = document.querySelector('.ranking');
 const pointsElement = document.querySelector('.points')
-const imageLogo = document.querySelector('.image')
-
-
 
 const boxes = document.querySelectorAll('.box');
-for (let i = 0; i < boxes.length; i++) {
-	boxes[i].addEventListener('click', function() {
-		const info = JSON.parse(this.dataset.info);
-		nameElement.innerText = info.name;
-		teamElement.innerText = 'Team: ' + info.team;
-		pointsElement.innerText = 'Points' + info.points
-		rankingElement.innerText = 'Ranking: ' + info.ranking;
-		modal.style.visibility = 'visible';
-	});
-}
 
-closeButton.addEventListener('click', function() {
-	modal.style.visibility = 'hidden';
-});
-
-window.addEventListener('click', function(event) {
-	if (event.target == modal) {
-		modal.style.visibility = 'hidden';
-	}
-});
-
+let logoUrls = [];
 
 const options = {
 	method: 'GET',
@@ -47,8 +25,33 @@ fetch('https://api-formula-1.p.rapidapi.com/teams', options)
 		console.log(teamsResponse);
 		for (let i = 0; i < teamsResponse.response.length; i++) {
 			let teamLogo = teamsResponse.response[i].logo;
-			console.log(teamLogo)
+			logoUrls.push(teamLogo);
+		}
+		for (let i = 0; i < boxes.length; i++) {
+			boxes[i].style.backgroundImage = `url(${logoUrls[i]})`;
+			boxes[i].style.backgroundSize = 'contain';
+			boxes[i].style.backgroundRepeat = 'no-repeat';
+			boxes[i].style.backgroundPosition = 'center';
 		}
 	})
 	.catch(err => console.error(err));
-	
+
+for (let i = 0; i < boxes.length; i++) {
+	boxes[i].addEventListener('click', function() {
+		const info = JSON.parse(this.dataset.info);
+		nameElement.innerText = info.name;
+		teamElement.innerText = 'Team: ' + info.team;
+		pointsElement.innerText = 'Points: ' + info.points;
+		rankingElement.innerText = 'Ranking: ' + info.ranking;
+		modal.style.visibility = 'visible';
+	});
+}
+closeButton.addEventListener('click', function() {
+	modal.style.visibility = 'hidden';
+});
+
+window.addEventListener('click', function(event) {
+	if (event.target == modal) {
+		modal.style.visibility = 'hidden';
+	}
+});
