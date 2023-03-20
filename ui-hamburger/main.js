@@ -42,7 +42,7 @@ breedSelect.addEventListener('change', () => {
         .then((data) => {
           img.src = data.message;
           const h2 = img.parentElement.querySelector("h2");
-          h2.innerHTML = breed;
+          // h2.innerHTML = breed;
         })
         .catch((error) => {
           console.log(error);
@@ -50,3 +50,33 @@ breedSelect.addEventListener('change', () => {
     }
   });
 });
+
+// select the paragraph element in the HTML
+const breedInfo = document.querySelector("#breed-info");
+
+// update the breed information based on the selected breed
+breedSelect.addEventListener("change", () => {
+  const breed = breedSelect.value;
+  if (breed === "terrier/junie-moon") {
+    breedInfo.innerHTML = "Junie Moon is a cute and friendly terrier.";
+  } else {
+    fetch(`https://api.api-ninjas.com/v1/dogs?name=${breed}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // extract the breed information from the response
+        const breedInfoText = data[0].breeds[0].temperament;
+
+        // update the paragraph tag with the retrieved breed information
+        breedInfo.innerHTML = `Temperament of ${breed} is: ${breedInfoText}`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+});
+
+
+
+
