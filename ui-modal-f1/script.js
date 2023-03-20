@@ -10,7 +10,7 @@ const driverOneElement = document.querySelector(".driver1");
 const driverTwoElement = document.querySelector(".driver2");
 const idElement = document.querySelector(".id");
 
-let logoUrls = {};
+let teamData = [];
 
 const options = {
   method: 'GET',
@@ -23,14 +23,11 @@ const options = {
 fetch('https://api-formula-1.p.rapidapi.com/teams', options)
   .then(response => response.json())
   .then(response => {
-    let teamsResponse = response;
-    for (let i = 0; i < teamsResponse.response.length; i++) {
-      let team = teamsResponse.response[i];
-      logoUrls[team.id] = team.logo;
-    }
+    teamData = response.response;
     for (let i = 0; i < boxes.length; i++) {
-      let info = JSON.parse(boxes[i].dataset.info);
-      boxes[i].style.backgroundImage = `url(${logoUrls[info.id]})`;
+      const teamName = boxes[i].dataset.info;
+      const team = teamData.find(t => t.name === teamName);
+      boxes[i].style.backgroundImage = `url(${team.logo})`;
       boxes[i].style.backgroundSize = 'contain';
       boxes[i].style.backgroundRepeat = 'no-repeat';
       boxes[i].style.backgroundPosition = 'center';
@@ -45,12 +42,13 @@ for (let i = 0; i < boxes.length; i++) {
     driverTwoElement.innerHTML = `Driver 2: ${info.driver2}`;
     nameElement.innerText = `Team: ${info.name}`;
     rankingElement.innerText = `Ranking: ${info.ranking}`;
-    engineElement.innerText = `Engine: ${info.engine}`;
-    directorElement.innerText = `Director: ${info.director}`;
+    const team = teamData.find(t => t.name === info.name);
+    engineElement.innerText = `Engine: ${team.engine}`;
+    directorElement.innerText = `Director: ${team.director}`;
     idElement.innerText = `ID: ${info.id}`;
     
     modal.style.visibility = 'visible';
-    const logoUrl = logoUrls[i];
+    const logoUrl = team.logo;
     const teamLogo = document.querySelector('.team-logo');
     teamLogo.src = logoUrl;
   });
