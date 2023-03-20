@@ -6,41 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>F1 2019 Roster</title>
-  <script src="main.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 	<div class="container">
-		<div class="box" data-info='{"name": "John", "age": 25, "occupation": "Developer"}'>1</div>
-		<div class="box" data-info='{"name": "Jane", "age": 30, "occupation": "Designer"}'>2</div>
-		<div class="box" data-info='{"name": "Bob", "age": 40, "occupation": "Manager"}'>3</div>
-		<div class="box" data-info='{"name": "Alice", "age": 35, "occupation": "Engineer"}'>4</div>
-		<div class="box" data-info='{"name": "Mike", "age": 27, "occupation": "Salesperson"}'>5</div>
-		<div class="box" data-info='{"name": "Susan", "age": 33, "occupation": "Marketer"}'>6</div>
-		<div class="box" data-info='{"name": "David", "age": 45, "occupation": "CEO"}'>7</div>
-		<div class="box" data-info='{"name": "Emily", "age": 29, "occupation": "Writer"}'>8</div>
-		<div class="box" data-info='{"name": "Tom", "age": 38, "occupation": "Consultant"}'>9</div>
-		<div class="box" data-info='{"name": "Kate", "age": 31, "occupation": "Accountant"}'>10</div>
-		<div class="box" data-info='{"name": "Tim", "age": 28, "occupation": "Developer"}'>11</div>
-		<div class="box" data-info='{"name": "Lucy", "age": 26, "occupation": "Designer"}'>12</div>
-		<div class="box" data-info='{"name": "Mark", "age": 42, "occupation": "Manager"}'>13</div>
-		<div class="box" data-info='{"name": "Olivia", "age": 32, "occupation": "Engineer"}'>14</div>
-		<div class="box" data-info='{"name": "Josh", "age": 36, "occupation": "Salesperson"}'>15</div>
-		<div class="box" data-info='{"name": "Karen", "age": 39, "occupation": "Marketer"}'>16</div>
-		<div class="box" data-info='{"name": "Peter", "age": 47, "occupation": "CEO"}'>17</div>
-		<div class="box" data-info='{"name": "Lily", "age": 28, "occupation": "Writer"}'>18</div>
-		<div class="box" data-info='{"name": "Frank", "age": 41, "occupation": "Consultant"}'>19</div>
-		<div class="box" data-info='{"name": "Maggie", "age": 34, "occupation": "Accountant"}'>20</div>
+		<div class="searchInput">
+			<input type="text" placeholder="search the year..">
+			<div class="resultBox">
+				<!-- here list are inserted from javascript -->
+			</div>
+			<div class="icon"><i class="fas fa-search"></i></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="box" data-info='{"name": "John", "team": 25, "ranking": "Developer"}'>1</div>
+		<div class="box" data-info='{"name": "Jane", "team": 30, "ranking": "Designer"}'>2</div>
+		<div class="box" data-info='{"name": "Bob", "team": 40, "ranking": "Manager"}'>3</div>
+		<div class="box" data-info='{"name": "Alice", "team": 35, "ranking": "Engineer"}'>4</div>
+		<div class="box" data-info='{"name": "Mike", "team": 27, "ranking": "Salesperson"}'>5</div>
+		<div class="box" data-info='{"name": "Susan", "team": 33, "ranking": "Marketer"}'>6</div>
+		<div class="box" data-info='{"name": "David", "team": 45, "ranking": "CEO"}'>7</div>
+		<div class="box" data-info='{"name": "Emily", "team": 29, "ranking": "Writer"}'>8</div>
+		<div class="box" data-info='{"name": "Tom", "team": 38, "ranking": "Consultant"}'>9</div>
+		<div class="box" data-info='{"name": "Kate", "team": 31, "ranking": "Accountant"}'>10</div>
+		<div class="box" data-info='{"name": "Tim", "team": 28, "ranking": "Developer"}'>11</div>
+		<div class="box" data-info='{"name": "Lucy", "team": 26, "ranking": "Designer"}'>12</div>
+		<div class="box" data-info='{"name": "Mark", "age": 42, "ranking": "Manager"}'>13</div>
+		<div class="box" data-info='{"name": "Olivia", "team": 32, "ranking": "Engineer"}'>14</div>
+		<div class="box" data-info='{"name": "Josh", "team": 36, "ranking": "Salesperson"}'>15</div>
+		<div class="box" data-info='{"name": "Karen", "team": 39, "ranking": "Marketer"}'>16</div>
+		<div class="box" data-info='{"name": "Peter", "team": 47, "ranking": "CEO"}'>17</div>
+		<div class="box" data-info='{"name": "Lily", "team": 28, "ranking": "Writer"}'>18</div>
+		<div class="box" data-info='{"name": "Frank", "team": 41, "ranking": "Consultant"}'>19</div>
+		<div class="box" data-info='{"name": "Maggie", "team": 34, "ranking": "Accountant"}'>20</div>
 	</div>
 
 	<div class="modal">
 		<div class="modal-content">
 			<span class="close-button">&times;</span>
 			<div class="name"></div>
-      <div class="age"></div>
-      <div class="occupation"></div>
+      <div class="team"></div>
+      <div class="ranking"></div>
+			<div class="points"></div>
     </div>
   </div>
 </div>
-<script src="main.js"></script>
 </body>
 </html>

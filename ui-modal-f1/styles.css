@@ -46,3 +46,9 @@ body {
 	right: 10px;
 	cursor: pointer;
 }
+
+.searchInput {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
