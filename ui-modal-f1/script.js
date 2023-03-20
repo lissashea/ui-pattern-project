@@ -10,7 +10,7 @@ const driverOneElement = document.querySelector(".driver1");
 const driverTwoElement = document.querySelector(".driver2");
 const idElement = document.querySelector(".id");
 
-let logoUrls = [];
+let logoUrls = {};
 
 const options = {
   method: 'GET',
@@ -25,11 +25,12 @@ fetch('https://api-formula-1.p.rapidapi.com/teams', options)
   .then(response => {
     let teamsResponse = response;
     for (let i = 0; i < teamsResponse.response.length; i++) {
-      let teamLogo = teamsResponse.response[i].logo;
-      logoUrls.push(teamLogo);
+      let team = teamsResponse.response[i];
+      logoUrls[team.id] = team.logo;
     }
     for (let i = 0; i < boxes.length; i++) {
-      boxes[i].style.backgroundImage = `url(${logoUrls[i]})`;
+      let info = JSON.parse(boxes[i].dataset.info);
+      boxes[i].style.backgroundImage = `url(${logoUrls[info.id]})`;
       boxes[i].style.backgroundSize = 'contain';
       boxes[i].style.backgroundRepeat = 'no-repeat';
       boxes[i].style.backgroundPosition = 'center';
