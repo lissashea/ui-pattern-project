@@ -37,7 +37,7 @@ breedSelect.addEventListener('change', () => {
   images.forEach((img) => {
     if (breed === 'terrier/junie-moon') {
       img.src = 'file:///Users/lissawarshaw/Desktop/repos/projects/ui-pattern-project/ui-hamburger/images/june.jpg';
-      breedInfo.innerHTML = "Junie Moon is a cute and friendly terrier.";
+      breedInfo.textContent = "Junie Moon is a cute and friendly terrier.";
     } else {
       fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
         .then((response) => {
@@ -45,8 +45,8 @@ breedSelect.addEventListener('change', () => {
         })
         .then((data) => {
           img.src = data.message;
-
-          // update the breed information based on the selected breed
+          // new API key for info on breeds
+          
           fetch(`https://api.api-ninjas.com/v1/dogs?name=${breed}`, {
             headers: {
               'X-Api-Key': '+8G5Aam635HpQkQQJjLh7A==ygeJ5wwFvYckx6PA'
@@ -56,12 +56,9 @@ breedSelect.addEventListener('change', () => {
               return response.json();
             })
             .then((data) => {
-              // extract the breed information from the response
               const breedInfoText = data[0].energy;
-              const breedInfoTextTrain = data[0].trainability;
 
-              // update the paragraph tag with the retrieved breed information
-              breedInfo.innerHTML = `energy of ${breed} is: ${breedInfoText} and their trainability is: ${breedInfoTextTrain} out of 10`;
+              breedInfo.innerHTML = `energy of ${breed} is: ${breedInfoText}`;
             })
             .catch((error) => {
               console.log(error);
