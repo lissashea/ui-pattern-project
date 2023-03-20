@@ -9,48 +9,41 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-		<div class="searchInput">
-			<input type="searh" id="query" placeholder="search the player...">
-			<div class="resultBox">
-			</div>
-			<div class="icon"><i class="fas fa-search"></i></div>
-		</div>
-
-	<div class="container" id="text">
-
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Mercedes-AMG Petronas", "ranking": "", "Engine": "", "Director": "", "id": ""}'>1</div>
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "McLaren Racing", "ranking": "", "Engine": "", "Director": "", "id": ""}'>2</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Red Bull Racing", "ranking": "","Engine": "", "Director": "", "id": ""}'>3</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Scuderia Ferrari", "ranking": "","Engine": "", "Director": "", "id": ""}'>4</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Force India", "ranking": "", "Engine": "", "Director": "", "id":}'>5</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Alpine F1 Team", "ranking": "","Engine": "", "Director": "", "id":}'>6</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Scuderia AlphaTauri Honda", "ranking": "", "Engine": "", "Director": "", "id": ""}'>7</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Williams F1 Team", "ranking": "","Engine": "", "Director": "", "id": ""}'>8</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Aston Martin F1 Team", "ranking": "","Engine": "", "Director": "", "id": ""}'>9</div>
-		
-		<div class="box" data-info='{"driver1": "", "driver2": "", "team": "Haas F1 Team", "ranking": "","Engine": "", "Director": "", "id": ""}'>10</div>
+	<div class="searchInput">
+		<input type="search" id="query" placeholder="Search the team...">
+		<div class="resultBox"></div>
+		<div class="icon"><i class="fas fa-search"></i></div>
 	</div>
 
+	<div class="container text">
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Mercedes-AMG Petronas", "ranking": "", "engine": "", "director": "", "id": "5"}'>Mercedes-AMG Petronas</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "McLaren Racing", "ranking": "", "engine": "", "director": "", "id": "2"}'>McLaren Racing</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Red Bull Racing", "ranking": "", "engine": "", "director": "", "id": "1"}'>Red Bull Racing</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Scuderia Ferrari", "ranking": "", "engine": "", "director": "", "id": "3"}'>Scuderia Ferrari</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Aston Martin Cognizant F1 Team", "ranking": "", "engine": "", "director": "", "id": "4"}'>Aston Martin Cognizant F1 Team</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Alpine F1 Team", "ranking": "", "engine": "", "director": "", "id": "13"}'>Alpine F1 Team</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Alfa Romeo Racing", "ranking": "", "engine": "", "director": "", "id": "8"}'>Alfa Romeo Racing</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Scuderia AlphaTauri Honda", "ranking": "", "engine": "", "director": "", "id": "7"}'>Scuderia AlphaTauri Honda</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Williams Racing", "ranking": "", "engine": "", "director": "", "id": "12"}'>Williams Racing</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Uralkali Haas F1 Team", "ranking": "", "engine": "", "director": "", "id": "14"}'>Uralkali Haas F1 Team</div>
+		<div class="box" data-info='{"driver1":"", "driver2": "", "name": "BWT Racing Point F1 Team", "ranking": "", "engine": "", "director": "", "id": "15"}'>BWT Racing Point F1 Team</div>
+	</div>
 	<div class="modal">
 		<div class="modal-content">
 			<span class="close-button">&times;</span>
 			<img class="team-logo">
 			<div class="driver1"></div>
 			<div class="driver2"></div>
-			<div class="team"></div>
+			<div class="name"></div>
 			<div class="ranking"></div>
 			<div class="engine"></div>
 			<div class="director"></div>
 			<div class="id"></div>
 		</div>		
 	</div>
-</div>
 </body>
 </html>
+
+
+
+
