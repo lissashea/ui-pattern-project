@@ -1,6 +1,12 @@
+@font-face {
+  font-family: formula;
+  src: url(formula1.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, sans-serif;
-	font-weight: bold;
+  font-family: formula;
   color: black;
   background-image: url("/Users/lissawarshaw/Desktop/repos/projects/ui-pattern-project/ui-modal-f1/formula1.jpg");
   background-repeat: no-repeat;
@@ -81,7 +87,7 @@ h1 {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: formula;
   color: black;
 }
 
@@ -97,6 +103,7 @@ h1 {
   align-items: center;
   justify-content: center;
   margin: 60px;
+  font-family: formula;
 }
 
 .icon {
@@ -170,18 +177,22 @@ header {
 }
 
 nav {
-  background-color: #000;
-  height: 50px;
-  display: flex;
+  background:#e10600;
+  /* height: 50px; */
+  overflow: auto;
+  position: relative;
+  z-index: 101;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 nav ul {
   list-style: none;
-  margin: 0;
+  margin: auto;
   padding: 0;
   display: flex;
+  justify-content: center;
 }
 
 nav li {
@@ -190,10 +201,13 @@ nav li {
 
 nav a {
   color: #fff;
+  border: solid 2px #e10600;
+  border-top: 0;
+  border-left: 0;
   text-decoration: none;
-  font-family: Formula1 Display, sans-serif;
-  font-size: 25px;
-  display: flex;
+  font-family: formula;
+  font-size: 18px;
+  display: inline-block;
   align-items: center;
   transition: background-color 0.3s ease;
 }
