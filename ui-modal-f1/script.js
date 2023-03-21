@@ -14,6 +14,22 @@ let logos = {};
 let directorInfo = {};
 let engineInfo = {};
 
+
+
+// // Define the URL for the driver API
+// const driverApiUrl = 'https://example.com/api/drivers';
+
+// // Make a GET request to the driver API
+// fetch(driverApiUrl)
+//   .then(response => response.json())
+//   .then(drivers => {
+//     // Save the drivers to an object for easy access
+//     let driverInfo = {};
+//     drivers.forEach(driver => {
+//       driverInfo[driver.id] = driver;
+//     });
+//   });
+
 const options = {
   method: 'GET',
   headers: {
@@ -45,8 +61,8 @@ fetch('https://api-formula-1.p.rapidapi.com/teams', options)
 for (let i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener('click', function() {
     const info = JSON.parse(this.dataset.info);
-    driverOneElement.innerHTML = `Driver 1: ${info.driver1}`;
-    driverTwoElement.innerHTML = `Driver 2: ${info.driver2}`;
+    // driverOneElement.innerHTML = `Driver 1: ${driverInfo[info.driver1].name}`;
+    // driverTwoElement.innerHTML = `Driver 2: ${driverInfo[info.driver2].name}`;
     nameElement.innerText = `Team: ${info.name}`;
     rankingElement.innerText = `Ranking: ${info.ranking}`;
     engineElement.innerText = `Engine: ${engineInfo[info.name]}`;
