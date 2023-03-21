@@ -174,7 +174,10 @@ header {
   justify-content: center;
 }
 
-
+.alphaimg {
+  height: 180px;
+  width: 320px;
+}
 
 .logo {
 	width: 35%; /* changed width value */
