@@ -70,29 +70,61 @@ window.addEventListener('click', function(event) {
   }
 });
 
-
+const input = document.getElementById("myInput");
 
 function myFunction() {
-  var input, filter, ul, li, a, i, txtValue;
+  let input, filter, ul, li, a, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   ul = document.getElementById("myUL");
   li = ul.getElementsByTagName("li");
   
-  if(input.value.length === 0){
-    li.style.display = "none";
+  if (input.value.length === 0) {
+    for (let i = 0; i < boxes.length; i++) {
+      boxes[i].style.display = 'flex';
+    }
     return;
-  }else{
-    li.style.display = "block";
   }
-
+  
   for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      txtValue = a.textContent || a.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          li[i].style.display = "";
-      } else {
-          li[i].style.display = "none";
-      }
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a.style.display = "";
+    } else {
+      a.style.display = "none";
+    }
+  }  
+  
+  for (let i = 0; i < boxes.length; i++) {
+    const info = JSON.parse(boxes[i].dataset.info);
+    if (info.name.toUpperCase() === filter) {
+      boxes[i].style.display = 'flex';
+    } else {
+      boxes[i].style.display = 'none';
+    }
   }
 }
+
+
+input.addEventListener('input', function() {
+  const filter = input.value.toUpperCase();
+  if (filter.length > 0) {
+    for (let i = 0; i < boxes.length; i++) {
+      const info = JSON.parse(boxes[i].dataset.info);
+      const name = info.name.toUpperCase();
+      if (name === filter) {
+        boxes[i].style.display = 'flex';
+      } else {
+        boxes[i].style.display = 'none';
+      }
+    }
+  } else {
+    for (let i = 0; i < boxes.length; i++) {
+      boxes[i].style.display = 'flex';
+    }
+  }
+});
+
+
+
