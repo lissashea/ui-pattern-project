@@ -1,43 +1,78 @@
-const baseUrl = `https://f1.sportmonks.com/api/v1.0`;
-const driverUrl = `https://f1.sportmonks.com/api/v1.0/drivers/${driverId}?api_token=${FhmVbZTQgiy5K23FYfxEpG3nQa2RekWfbVwHzwVKCuTPc0bPN1KdoYcH4hwu}`;
+
+const baseUrl = 'https://f1.sportmonks.com/api/v1.0';
+const apiToken = 'FhmVbZTQgiy5K23FYfxEpG3nQa2RekWfbVwHzwVKCuTPc0bPN1KdoYcH4hwu';
+
+const relevantSeasons = [
+  {id: 6, name: '2021'},
+  {id: 7, name: '2022'},
+  {id: 8, name: '2023'}
+]
+
+const seasonId2021 = relevantSeasons[0].id
+const seasonId2022 = relevantSeasons[1].id
+const seasonId2023 = relevantSeasons[2].id
+
+function getDriverIdsForSeason(seasonId) {
+}
+
+
+
+function getDriverRaceResultsForSeason(driverId, seasonId) {
+}
+
+
+function getDriversForSeason(seasonId) {
+const driverIds = getDriverIdsForSeason(seasonId);
+  const drivers = [];
+
+  for (let driverId of driverIds) {
+    const driver = {
+      id: driverId,
+      teamId: null,
+      name: null,
+      shortName: null,
+      number: null,
+      imagePath: null,
+      points: 0,
+      raceResults: [],
+    };
+
+    const driverInfo =  getDriverInfo(driverId);
+    driver.teamId = driverInfo.team_id;
+    driver.name = driverInfo.name;
+    driver.shortName = driverInfo.short_name;
+    driver.number = driverInfo.number;
+    driver.imagePath = driverInfo.image_path;
+
+    const raceResults =  getDriverRaceResultsForSeason(driverId, seasonId);
+    driver.raceResults = raceResults;
+
+    drivers.push(driver);
+  }
+
+  return drivers;
+}
 
 function getDriverInfo(driverId) {
-  return fetch(driversUrl.replace('{ID}', driverId))
-    .then(response => response.json())
-    .then(response => {
-      const driverData = response.data[0];
-      return {
-        id: driverData.id,
-        teamId: driverData.team_id,
-        name: driverData.name,
-        shortName: driverData.short_name,
-        number: driverData.number,
-        imagePath: driverData.image_path
-      };
-    })
-    .catch(err => console.error(err));
+  const url = `${baseUrl}/drivers/${driverId}?api_token=${apiToken}`;
+  const response = fetch(url);
+  const data = response.json();
+  return data.data;
 }
 
-function updateWebsiteWithDriverInfo(driverInfo) {
-  // Update your website with the driver information here
-}
+(async () => {
+   const relevantSeasons = getSeasons();
+   const driversBySeason = [];
 
-function getDriverInfoForSeason(seasonId) {
-  fetch(driversUrl.replace('{ID}', seasonId))
-    .then(response => response.json())
-    .then(response => {
-      const drivers = response.data;
-      const driverIds = drivers.map(driver => driver.id);
-      const driverPromises = driverIds.map(driverId => getDriverInfo(driverId));
-      Promise.all(driverPromises)
-        .then(driverDataArray => {
-          const driverInfo = {};
-          driverDataArray.forEach(driverData => {
-            driverInfo[driverData.id] = driverData;
-          });
-          updateWebsiteWithDriverInfo(driverInfo);
-        })
-        .catch(err => console.error(err));
-    })
-    .catch(err => console.error(err));
-}
+   for (let season of relevantSeasons) {
+     const drivers = getDriversForSeason(season.id);
+     driversBySeason.push({
+       seasonId: season.id,
+       drivers: drivers,
+     });
+   }
+
+  console.log(driversBySeason);
+});
+
+

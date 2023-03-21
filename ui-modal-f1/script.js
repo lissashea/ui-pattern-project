@@ -1,3 +1,4 @@
+
 const modal = document.querySelector('.modal');
 const closeButton = document.querySelector('.close-button');
 const boxes = document.querySelectorAll('.box');
@@ -14,21 +15,6 @@ let logos = {};
 let directorInfo = {};
 let engineInfo = {};
 
-
-
-// // Define the URL for the driver API
-// const driverApiUrl = 'https://example.com/api/drivers';
-
-// // Make a GET request to the driver API
-// fetch(driverApiUrl)
-//   .then(response => response.json())
-//   .then(drivers => {
-//     // Save the drivers to an object for easy access
-//     let driverInfo = {};
-//     drivers.forEach(driver => {
-//       driverInfo[driver.id] = driver;
-//     });
-//   });
 
 const options = {
   method: 'GET',
