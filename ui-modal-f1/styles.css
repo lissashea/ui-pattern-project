@@ -1,6 +1,15 @@
 body {
   font-family: Arial, sans-serif;
+	font-weight: bold;
   color: black;
+  background-image: url("/Users/lissawarshaw/Desktop/repos/projects/ui-pattern-project/ui-modal-f1/formula1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+	padding-top: 10px;
 }
 
 .text {
@@ -28,13 +37,15 @@ body {
 .box {
   width: 200px;
   height: 200px;
-  border: 1px solid black;
+  border: 10px solid rgba(0, 0, 0, 0.5); /* added thicker border and transparency */
+  background-color: white; /* added grey background with transparency */
   display: flex;
   align-items: flex-start;
   justify-content: center;
   cursor: pointer;
   position: relative;
-  overflow: hidden; /* added to hide text overflow */
+  overflow: hidden;
+	padding: 20px;
 }
 
 .box:hover {
@@ -129,5 +140,62 @@ body {
 }
 
 .resultBox .result:hover {
-  background-color: #f1f1f1;
+  background-color: #858a96;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 3in;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+
+.logo {
+	width: 35%; /* changed width value */
+  height: auto;
+}
+
+nav {
+  background-color: #000;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Formula1 Display, sans-serif;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+nav a:hover i {
+  color: #000;
+}
+
+nav a i {
+  margin-right: 5px;
+  color: #fff;
+  font-size: 16px;
 }

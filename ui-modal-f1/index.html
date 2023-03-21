@@ -7,8 +7,20 @@
   <link rel="stylesheet" href="styles.css">
   <title>F1 2019 Roster</title>
   <script src="script.js" defer></script>
+  <script src="piechart.js" defer></script>
 </head>
-<body>
+<body>	
+	<header>
+		<h1 class="title">Formula One Stats 2018-2023</h1>
+		<img src="https://logotyp.us/files/f1.svg?ver20230225" alt="F1 logo" class="logo">
+	</header>
+	
+	<nav>
+    	<ul>
+      		<li><a href="#">Home</a></li>
+      		<li><a href="pie-chart.html">Points by Year</a></li>
+    	</ul>
+  	</nav>	
 	<div class="searchInput">
 		<input type="search" id="query" placeholder="Search the team...">
 		<div class="resultBox"></div>
@@ -20,14 +32,12 @@
 		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "McLaren Racing", "ranking": "", "engine": "", "director": "", "id": "2"}'>McLaren Racing</div>
 		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Red Bull Racing", "ranking": "", "engine": "", "director": "", "id": "1"}'>Red Bull Racing</div>
 		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Scuderia Ferrari", "ranking": "", "engine": "", "director": "", "id": "3"}'>Scuderia Ferrari</div>
-		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Aston Martin Cognizant F1 Team", "ranking": "", "engine": "", "director": "", "id": "4"}'>Aston Martin Cognizant F1 Team</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Aston Martin F1 Team", "ranking": "", "engine": "", "director": "", "id": "4"}'>Aston Martin F1 Team</div>
 		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Alpine F1 Team", "ranking": "", "engine": "", "director": "", "id": "13"}'>Alpine F1 Team</div>
-		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Alfa Romeo Racing", "ranking": "", "engine": "", "director": "", "id": "8"}'>Alfa Romeo Racing</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Alfa Romeo", "ranking": "", "engine": "", "director": "", "id": "18"}'>Alfa Romeo</div>
 		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Scuderia AlphaTauri Honda", "ranking": "", "engine": "", "director": "", "id": "7"}'>Scuderia AlphaTauri Honda</div>
-		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Williams Racing", "ranking": "", "engine": "", "director": "", "id": "12"}'>Williams Racing</div>
-		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Uralkali Haas F1 Team", "ranking": "", "engine": "", "director": "", "id": "14"}'>Uralkali Haas F1 Team</div>
-		<div class="box" data-info='{"driver1":"", "driver2": "", "name": "BWT Racing Point F1 Team", "ranking": "", "engine": "", "director": "", "id": "15"}'>BWT Racing Point F1 Team</div>
-	</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Williams F1 Team", "ranking": "", "engine": "", "director": "", "id": "12"}'>Williams F1 Team</div>
+		<div class="box" data-info='{"driver1": "", "driver2": "", "name": "Haas F1 Team", "ranking": "", "engine": "", "director": "", "id": "14"}'>Haas F1 Team</div>
 	<div class="modal">
 		<div class="modal-content">
 			<span class="close-button">&times;</span>

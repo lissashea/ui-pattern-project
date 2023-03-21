@@ -10,7 +10,9 @@ const driverOneElement = document.querySelector(".driver1");
 const driverTwoElement = document.querySelector(".driver2");
 const idElement = document.querySelector(".id");
 
-let teamData = [];
+let logos = {};
+let directorInfo = {};
+let engineInfo = {};
 
 const options = {
   method: 'GET',
@@ -23,11 +25,16 @@ const options = {
 fetch('https://api-formula-1.p.rapidapi.com/teams', options)
   .then(response => response.json())
   .then(response => {
-    teamData = response.response;
+    let teamsResponse = response;
+    for (let i = 0; i < teamsResponse.response.length; i++) {
+      let team = teamsResponse.response[i];
+      logos[team.name] = team.logo;
+      directorInfo[team.name] = team.director;
+      engineInfo[team.name] = team.engine;
+    }
     for (let i = 0; i < boxes.length; i++) {
-      const teamName = boxes[i].dataset.info;
-      const team = teamData.find(t => t.name === teamName);
-      boxes[i].style.backgroundImage = `url(${team.logo})`;
+      const info = JSON.parse(boxes[i].dataset.info);
+      boxes[i].style.backgroundImage = `url(${logos[info.name]})`;
       boxes[i].style.backgroundSize = 'contain';
       boxes[i].style.backgroundRepeat = 'no-repeat';
       boxes[i].style.backgroundPosition = 'center';
@@ -42,13 +49,12 @@ for (let i = 0; i < boxes.length; i++) {
     driverTwoElement.innerHTML = `Driver 2: ${info.driver2}`;
     nameElement.innerText = `Team: ${info.name}`;
     rankingElement.innerText = `Ranking: ${info.ranking}`;
-    const team = teamData.find(t => t.name === info.name);
-    engineElement.innerText = `Engine: ${team.engine}`;
-    directorElement.innerText = `Director: ${team.director}`;
+    engineElement.innerText = `Engine: ${engineInfo[info.name]}`;
+    directorElement.innerText = `Director: ${directorInfo[info.name]}`;
     idElement.innerText = `ID: ${info.id}`;
     
     modal.style.visibility = 'visible';
-    const logoUrl = team.logo;
+    const logoUrl = logos[info.name];
     const teamLogo = document.querySelector('.team-logo');
     teamLogo.src = logoUrl;
   });
@@ -63,3 +69,5 @@ window.addEventListener('click', function(event) {
     modal.style.visibility = 'hidden';
   }
 });
+
+
