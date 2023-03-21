@@ -25,11 +25,15 @@ body {
 
 h1 {
 	padding-top: 50px;
+  line-height: 250%;
+  text-shadow: 2px 4px 4px rgba(27, 28, 35, 0.6);
+
 }
 
 .text {
   color: black;
   font-weight: strong;
+  font-family: formula;
 }
 
 .container {
@@ -61,6 +65,7 @@ h1 {
   position: relative;
   overflow: hidden;
 	padding: 20px;
+  font-family: formula;
 }
 
 .box:hover {
@@ -210,10 +215,10 @@ nav a {
   display: inline-block;
   align-items: center;
   transition: background-color 0.3s ease;
+  line-height: 250%;
 }
 
 nav a:hover {
-  background-color: #fff;
   color: #000;
 }
 
