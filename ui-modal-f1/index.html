@@ -5,14 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="css/webfontkit-20230321-094635">
   <title>F1 2018-2023 Roster</title>
   <script src="script.js" defer></script>
   <script src="piechart/piechart.js" defer></script>
 </head>
 <body>	
 	<header>
-		<h1 class="title">Formula One Statistics</h1>
+		<!-- <h1 class="title">F1</h1> -->
 		<img src="https://logotyp.us/files/f1.svg?ver20230225" target="_blank" alt="F1 logo" class="logo">
 	</header>
 	<nav>
@@ -24,7 +23,28 @@
 				</ul>
   	</nav>	
 	<div class="searchInput">
-		<input type="search" id="query" placeholder="Search the team...">
+		<input type="text" id="myInput" placeholder="Search the team..." onkeyup="myFunction()" title="Type in a name">
+		<ul id="myUL">
+			<li><a href="#">Adele</a></li>
+  		<li><a href="#">Agnes</a></li>
+  		<li><a href="#">Billy</a></li>
+  		<li><a href="#">Bob</a></li>
+  		<li><a href="#">Calvin</a></li>
+  		<li><a href="#">Christina</a></li>
+  		<li><a href="#">Cindy</a></li>
+			<li><a href="#">Bob</a></li>
+  		<li><a href="#">Calvin</a></li>
+  		<li><a href="#">Christina</a></li>
+  		<li><a href="#">Cindy</a></li>
+			<li><a href="#">Bob</a></li>
+  		<li><a href="#">Calvin</a></li>
+  		<li><a href="#">Christina</a></li>
+  		<li><a href="#">Cindy</a></li>
+			<li><a href="#">Bob</a></li>
+  		<li><a href="#">Calvin</a></li>
+  		<li><a href="#">Christina</a></li>
+  		<li><a href="#">Cindy</a></li>
+		</ul> 
 		<div class="resultBox"></div>
 		<div class="icon"><i class="fas fa-search"></i></div>
 	</div>
