@@ -47,6 +47,7 @@ async function getDriverIds() {
 getapi(sportsUrl);
 
 
+
 // const baseUrl = 'https://f1.sportmonks.com/api/v1.0';
 // const apiToken = 'FhmVbZTQgiy5K23FYfxEpG3nQa2RekWfbVwHzwVKCuTPc0bPN1KdoYcH4hwu';
 
