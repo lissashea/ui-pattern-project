@@ -72,61 +72,52 @@ window.addEventListener('click', function(event) {
   }
 });
 
-const input = document.getElementById("myInput");
+const apiKey = `FhmVbZTQgiy5K23FYfxEpG3nQa2RekWfbVwHzwVKCuTPc0bPN1KdoYcH4hwu`;
+const sportsUrl = `https://f1.sportmonks.com/api/v1.0/seasons?api_token=${apiKey}`;
 
-function myFunction() {
-  let input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName("li");
+// Define an object to store the data
+const f1Data = {};
+f1Data.drivers = {};
+
+async function getapi(url) {
+  const response = await fetch(url);
+  const data = await response.json();
   
-  if (input.value.length === 0) {
-    for (let i = 0; i < boxes.length; i++) {
-      boxes[i].style.display = 'flex';
-    }
-    return;
+  // Store the data in the f1Data object
+  f1Data.seasons = data.data;
+  f1Data.teams = {};
+  f1Data.drivers = {};
+  
+  // Loop through each season and fetch the team and driver data
+  for (let i = 0; i < f1Data.seasons.length; i++) {
+    const seasonId = f1Data.seasons[i].id;
+    const teamsUrl = `https://f1.sportmonks.com/api/v1.0/teams/season/${seasonId}?api_token=${apiKey}`;
+    const driversUrl = `https://f1.sportmonks.com/api/v1.0/drivers/season/${seasonId}?api_token=${apiKey}`;
+
+    // Fetch the team data and store it in the f1Data object
+    const teamsResponse = await fetch(teamsUrl);
+    const teamsData = await teamsResponse.json();
+    f1Data.teams[seasonId] = teamsData.data;
+    
+    // Fetch the driver data and store it in the f1Data object
+    const driversResponse = await fetch(driversUrl);
+    const driversData = await driversResponse.json();
+    f1Data.drivers[seasonId] = driversData.data;
   }
   
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a.style.display = "";
-    } else {
-      a.style.display = "none";
-    }
-  }  
+  f1Data.teams[seasonId] = teamsData.data;
+  f1Data.drivers[seasonId] = driversData.data;
   
-  for (let i = 0; i < boxes.length; i++) {
-    const info = JSON.parse(boxes[i].dataset.info);
-    if (info.name.toUpperCase() === filter) {
-      boxes[i].style.display = 'flex';
-    } else {
-      boxes[i].style.display = 'none';
-    }
-  }
+  // You could also call a function to update the UI with the data at this point
 }
 
+getapi(sportsUrl)
+  .then(() => {
+    console.log(f1Data.seasons);
+    console.log(f1Data.teams);
+    console.log(f1Data.drivers);
 
-input.addEventListener('input', function() {
-  const filter = input.value.toUpperCase();
-  if (filter.length > 0) {
-    for (let i = 0; i < boxes.length; i++) {
-      const info = JSON.parse(boxes[i].dataset.info);
-      const name = info.name.toUpperCase();
-      if (name === filter) {
-        boxes[i].style.display = 'flex';
-      } else {
-        boxes[i].style.display = 'none';
-      }
-    }
-  } else {
-    for (let i = 0; i < boxes.length; i++) {
-      boxes[i].style.display = 'flex';
-    }
-  }
-});
-
-
-
+    console.log(f1Data.seasons);
+    console.log(f1Data.teams);
+    console.log(f1Data.drivers);
+  });
