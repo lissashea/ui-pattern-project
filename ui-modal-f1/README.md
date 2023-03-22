@@ -6,7 +6,7 @@ This website showcases the current teams and their details in the Formula 1 raci
 
 The website uses the RapidAPI to fetch data on the teams and display it on the page. Each team is represented by a box with their logo, and users can click on the box to reveal more information about the team in a modal. The modal displays the team logo, their drivers, ranking, engine, director, and ID.
 
-Users can also use the search bar to find specific teams. When the user types a team's name in the search bar, the website will display only the team's corresponding box.
+Users can also use the search bar to find specific teams. When the user types a team's name in the search bar, the website will display only the team's corresponding box. ******work in progress*****
 
 ## Technologies Used
 
@@ -14,4 +14,4 @@ This website is built using HTML, CSS, and JavaScript. It uses the RapidAPI to f
 
 ## Credits
 
-This website was built by [insert your name or organization here] using the RapidAPI. The website's design is inspired by the official Formula 1 website.
+This website was built by lissa warshaw using the RapidAPI. The website's design is inspired by the official Formula 1 website.
