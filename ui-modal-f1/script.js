@@ -47,8 +47,8 @@ fetch('https://api-formula-1.p.rapidapi.com/teams', options)
 for (let i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener('click', function() {
     const info = JSON.parse(this.dataset.info);
-    // driverOneElement.innerHTML = `Driver 1: ${driverInfo[info.driver1].name}`;
-    // driverTwoElement.innerHTML = `Driver 2: ${driverInfo[info.driver2].name}`;
+    driverOneElement.innerHTML = `Driver 1: ${[info.driver1]}`;
+    driverTwoElement.innerHTML = `Driver 2: ${[info.driver2]}`;
     nameElement.innerText = `Team: ${info.name}`;
     rankingElement.innerText = `Ranking: ${info.ranking}`;
     engineElement.innerText = `Engine: ${engineInfo[info.name]}`;

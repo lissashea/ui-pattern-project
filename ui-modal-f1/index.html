@@ -8,7 +8,6 @@
   <title>F1 2018-2023 Roster</title>
   <script src="script.js" defer></script>
 	<!-- <script src="api.js" defer></script> -->
-  <script src="piechart/piechart.js" defer></script>
 </head>
 <body>	
 	<header>
@@ -23,6 +22,8 @@
 					<li><a href="piechart/pie-chart.html" target="_blank">Points by Year</a></li>
 				</ul>
   	</nav>	
+		<input type="file" id="fileUpload" accept=".xls,.xlsx" />br />
+		<pre id="jsonData"></pre>
 	<div class="searchInput">
 		<input type="text" id="myInput" placeholder="Search the team..." onkeyup="myFunction()" title="Type in a name">
 		<ul id="myUL">
